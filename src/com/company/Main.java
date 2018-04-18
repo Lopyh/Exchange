@@ -47,7 +47,7 @@ public class Main {
         System.out.println("Введите путь к файлу (Я сделал фаил 1.txt)");
         String fileName = br.readLine();
         BufferedReader brFile = new BufferedReader(new FileReader(fileName));
-        String buffer = null;
+        String buffer;
         while ((buffer = brFile.readLine())!=null){
             list.add(buffer);
             System.out.println(buffer);
@@ -97,8 +97,10 @@ public class Main {
 
 
         /*Ищу из всех варианты в которых число сделок равно number */
-        if (number==0)
+        if (number==0){
+            System.out.println("-----------------------------------------------");
             System.out.println("0 n/a");
+        }
         else {
             Integer j = 0;
             Double sum = 0.0;
@@ -123,7 +125,7 @@ public class Main {
                 }
             }
             System.out.println("-----------------------------------------------");
-            System.out.println(number + " " + new BigDecimal(sum / j).setScale(2, RoundingMode.UP).doubleValue());
+            System.out.println(number + " " + new BigDecimal(sum / j).setScale(2, RoundingMode.CEILING).doubleValue());
         }
     }
 
